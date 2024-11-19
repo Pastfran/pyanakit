@@ -21,7 +21,7 @@ import pandas as pd
 from tkinter import messagebox
 import matplotlib.pyplot as plt
 
-def process_data(data, plot_type=None, treatment_to_compare = None):  
+def process_data(data, plot_type = None, treatment_to_compare = None):  
     if plot_type is None or treatment_to_compare is None: 
        raise ValueError("Plot_type and treatment_to_compare are required.")
     

@@ -5,8 +5,6 @@ Created on Mon Oct 28 11:34:54 2024
 @author: past
 """
 
-#pca_analysis.py
-
 from tkinter import messagebox
 from sklearn.decomposition import PCA
 from sklearn.preprocessing import StandardScaler
@@ -42,7 +40,6 @@ def perform_pca(data):
         # Plot PCA results
         plt.figure(figsize=(10, 6))
         sns.scatterplot(x='Principal Component 1', y='Principal Component 2', data=pca_df)
-        #sns.scatterplot(x=pca_result[:, 0], y=pca_result[:, 1])
         plt.title('PCA of Data')
         plt.xlabel('Principal Component 1')
         plt.ylabel('Principal Component 2')

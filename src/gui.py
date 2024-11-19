@@ -59,7 +59,7 @@ def plot_clustermap_from_gui():
     else:
         plot_clustermap(data=loaded_data)
     
-#ensure realtiv window and elementsize 
+#ensure relativ window and elementsize 
 root.grid_rowconfigure(0, weight=1)
 root.grid_rowconfigure(1, weight=1)
 root.grid_rowconfigure(2, weight=1)
