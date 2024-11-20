@@ -60,10 +60,10 @@ def process_data(data, plot_type = None, treatment_to_compare = None):
             plot_violin(melted_data, treatment_to_compare, 'Value')
         
         elif plot_type == "Box Plot":
-            plot_box(melted_data, treatment_to_compare, 'Value', ci=None)
+            plot_box(melted_data, treatment_to_compare, 'Value')
         
         elif plot_type == "Bar Plot":
-            plot_bar(melted_data, treatment_to_compare, 'Value', ci=None)
+            plot_bar(melted_data, treatment_to_compare, 'Value')
 
         # elif plot_type == "Scatter Plot":
         #     plot_scatter(melted_data, treatment_to_compare, 'Value')
