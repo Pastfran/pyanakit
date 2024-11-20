@@ -43,15 +43,15 @@ pip install matplotlib numpy pandas scikit-learn scipy seaborn statsmodels
 
 ## Starting the Application 
 1. Open your command line interface (e.g. Windows PowerShell, Anaconda PowerShell).
-2. Navigate to the folder where the application is located and into the "src" directory. Replace the path accordingly:
+2. Navigate to the folder where the application is located and into the `src` folder. Replace the path accordingly:
 ```bash	
 cd C:/Path/to/file/src
 ```
-3. Ensure Python is properly set up on your system and recognized in the Command Prompt. You can check this by typing: 
+3. Ensure Python is properly set up on your system and recognized in the Command Prompt. You can check this by using the command below. \
+If Python is installed and the version displayed, you are good to go. If not, ensure Python is installed and added to your system's PATH.
 ```bash 
 python --version
 ```	
-- If Python is installed and the version displayed, you are good to go. If not, ensure Python is installed and added to your system's PATH. 
 4. Launch the application with using this command:
 ```bash	
 python gui.py
@@ -61,6 +61,11 @@ Once the application is open:
 - Load your data using the "Load Data" button. 
 - Choose your desired analysis/visualisation option (e.g. PCA).
 - Explore the generated visuals and uncover patterns in your data. 
+
+## Sample Datasets
+To help to gett started quickly, we have included sample datasets for testing the application. These datasets are included in the `examples` folder. 
+Navigate and select the sample data via the GUI. \
+These datasets demonstrate the various features of the tool, allowing you to explore different plots and visualize how they represent your data, making them ideal for experimentation and learning.
 
 
 

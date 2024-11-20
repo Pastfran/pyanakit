@@ -5,7 +5,6 @@ Created on Mon Oct 28 11:33:52 2024
 @author: past
 """
 
-#plotting graphs 
 import seaborn as sns
 import matplotlib.pyplot as plt
 import pandas as pd
