@@ -1,15 +1,13 @@
 # pyanakit
 DataToolbox is a versatile data analysis toolkit with a user-friendly GUI. Simplify your data tasks with pyanakit.
 
-## Data Analysis GUI with PCA and *KMeans*
+## Data Analysis GUI 
 
 ### Overview
-This project features a graphical user interface (GUI) for performing data analysis using Principal Component Analysis (PCA) *and KMeans clustering*. It is designed for users who want to analyze their datasets visually without deep programming expertise. 
+This project features a graphical user interface (GUI) for performing data analysis using Principal Component Analysis (PCA) and data visualisation using different plot types. It is designed for users who want to analyze their datasets visually without deep programming expertise. 
 
 ### Features
-- *Load and parse data using customizable separators.*
-- Visualize data through heatmaps and PCA plots.
-- *Apply KMeans clustering and* visualize clusters on PCA plots.
+- Visualize data through plots, heatmaps and PCA plots.
 - Interactive GUI built with Tkinter.
 
 ### Requirements
