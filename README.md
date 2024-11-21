@@ -70,7 +70,7 @@ python gui.py
 ```
 Note: On Linux systems, the command python may point to Python 2.x or may not be available at all. To ensure that Python 3 is used, always use `python3`.
 ```bash 
-python3 --version
+python3 gui.py
 ```
 
 ### Getting Started
