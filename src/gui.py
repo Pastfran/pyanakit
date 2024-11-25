@@ -10,6 +10,9 @@ from data_processing import process_data
 from pca_analysis import perform_pca
 from clustermap_analysis import plot_clustermap
 from utils import select_file_path, load_clean
+#import matplotlib
+#matplotlib.use('TkAgg')  # Sicherstellen, dass Tkinter kompatibles Backend genutzt wird
+
 
 def select_file():
     global file_path, loaded_data

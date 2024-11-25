@@ -46,7 +46,7 @@ If Python is installed and the version displayed, you are good to go. If not, en
 ```bash 
 python --version
 ```
-Note: On Linux systems, the command python may point to Python 2.x or may not be available at all. To ensure that Python 3 is used, always use `python3`. You can check the Python version with:
+Note: On Linux systems, the command `python` may point to Python 2.x or may not be available at all. To ensure that Python 3 is used, always use `python3`. You can check the Python version with:
 ```bash 
 python3 --version
 ```
@@ -68,7 +68,7 @@ cd C:/Path/to/file/src
 ```bash	
 python gui.py
 ```
-Note: On Linux systems, the command python may point to Python 2.x or may not be available at all. To ensure that Python 3 is used, always use `python3`.
+Note: On Linux systems, the command `python` may point to Python 2.x or may not be available at all. To ensure that Python 3 is used, always use `python3`.
 ```bash 
 python3 gui.py
 ```

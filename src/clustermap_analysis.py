@@ -17,8 +17,8 @@ def plot_clustermap(
         line_thickness = 0.1, 
         dendro_line_thickness = 0.5
         ):
-      
-    plt.clf()  # Clear the current figure
+    
+    #plt.clf()  # Clear the current figure
     sns.set(font_scale=font_size)
 
     # Generate clustermap
@@ -32,8 +32,10 @@ def plot_clustermap(
         d.set_linewidth(dendro_line_thickness)
     
     #plotting 
-    plt.title(f'Heatmap with Dendrogram (Method: {method}, Color Map: {cmap})', fontsize=font_size * 10)
-    plt.xlabel('Samples', fontsize=font_size * 8)  
-    plt.ylabel('Features', fontsize=font_size * 8) 
-    plt.tight_layout()
-    plt.show()
+    g.fig.suptitle(f'Heatmap with Dendrogram (Method: {method}, Color Map: {cmap})', fontsize=font_size * 10)
+    g.ax_heatmap.set_xlabel('Samples', fontsize=font_size * 8)
+    g.ax_heatmap.set_ylabel('Features', fontsize=font_size * 8)
+    g.fig.tight_layout()
+    g.fig.subplots_adjust(top=0.9)
+    plt.figure(g.fig.number)  # Activate the specific figure
+    plt.show() 

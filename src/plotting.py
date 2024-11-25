@@ -72,7 +72,9 @@ def style_plot(plot_type, treatment_to_compare, y_column=None):
         plt.ylabel('Values')
     plt.xticks(rotation=45)
     plt.tight_layout() 
-    plt.legend()
+    handles, labels = plt.gca().get_legend_handles_labels()
+    if handles:
+        plt.legend()
             
 def overlay_data_points_and_error_bars(data, treatment_to_compare, plot_type):
     if plot_type != "Box Plot":
