@@ -7,8 +7,40 @@ Created on Mon Oct 28 11:34:17 2024
 
 #statistical analysis functions
 
-from scipy.stats import ttest_ind, f_oneway
+from scipy.stats import ttest_ind, f_oneway, kstest, shapiro, norm, mannwhitneyu
 from statsmodels.stats.multicomp import pairwise_tukeyhsd
+
+def perform_normal_test(melted_data, alpha = 0.05):
+    if len(melted_data) < 2:
+        raise ValueError("Normaldistribution test needs at least two values!")
+
+    if len(melted_data) <=200:
+        test_nv, p = kstest(melted_data, 'norm', args = (norm.mean(melted_data), norm.std(melted_data)))
+    else: 
+        test_nv, p = shapiro(melted_data)
+    
+    return bool(p >= alpha)
+    
+def perform_ranktest(melted_data, treatment_to_compare): 
+    if treatment_to_compare not in melted_data.columns:
+        raise ValueError(f"Spalte '{treatment_to_compare}' fehlt im DataFrame.")
+    if 'Value' not in melted_data.columns:
+        raise ValueError("Spalte 'Value' fehlt im DataFrame.")
+        
+    treatments = melted_data[treatment_to_compare].unique()
+    if len(treatments) == 2:
+        group1 = melted_data[melted_data[treatment_to_compare] == treatments[0]]['Value']
+        group2 = melted_data[melted_data[treatment_to_compare] == treatments[1]]['Value']
+        if len(group1) == 0 or len(group2) == 0:
+            raise ValueError("One group does not contain values. Please check data. ")
+        
+        # Mann-Whitney-U-Test (Wilcoxon für unabhängige Stichproben)
+        u_stat, p_value = mannwhitneyu(group1, group2, alternative='two-sided')
+        print(f"U-statistic: {u_stat}, p-value: {p_value}")
+        return u_stat, p_value
+    else:
+        print("No statistic! Current statistical analysis requires exactly two or more treatments.")
+        return None, None
 
 def perform_t_test(melted_data, treatment_to_compare):
     # Conduct a t-test between two treatments if applicable
