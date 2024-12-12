@@ -35,9 +35,9 @@ def perform_ranktest(melted_data, treatment_to_compare):
             raise ValueError("One group does not contain values. Please check data. ")
         
         # Mann-Whitney-U-Test (Wilcoxon für unabhängige Stichproben)
-        u_stat, p_value = mannwhitneyu(group1, group2, alternative='two-sided')
-        print(f"U-statistic: {u_stat}, p-value: {p_value}")
-        return u_stat, p_value
+        w_stat, w_p_value = mannwhitneyu(group1, group2, alternative='two-sided')
+        print(f"U-statistic: {w_stat}, p-value: {w_p_value}")
+        return w_stat, w_p_value
     else:
         print("No statistic! Current statistical analysis requires exactly two or more treatments.")
         return None, None

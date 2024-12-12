@@ -32,7 +32,7 @@ This project features a graphical user interface (GUI) for performing data analy
 ```bash
 cd C:/Path/to/directory
 ```
-2. Clone the repository / Download the application using the following command: 
+3. Clone the repository / Download the application using the following command: 
 ```bash 
 git clone https://github.com/Pastfran/pyanakit.git
 ```
@@ -64,7 +64,7 @@ pip install matplotlib numpy pandas scikit-learn scipy seaborn statsmodels
 ```bash	
 cd C:/Path/to/file/src
 ```
-4. Launch the application with using this command:
+3. Launch the application with using this command:
 ```bash	
 python gui.py
 ```
@@ -76,7 +76,7 @@ python3 gui.py
 ### Getting Started
 Once the application is open: 
 - Load your data using the "Load Data" button. 
-- Choose your desired analysis/visualisation option (e.g. PCA).
+- Choose your desired analysis/visualisation option (e.g. PCA) and start the process by clicking the corresponding button. 
 - Explore the generated visuals and uncover patterns in your data. 
 
 ## Sample Datasets

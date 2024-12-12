@@ -50,7 +50,7 @@ def process_data(data, plot_type = None, treatment_to_compare = None):
                 t_stat, t_p_value = perform_t_test(melted_data, treatment_to_compare)
             else: 
                 print("Data not normaldistributed. Performing Rank-Sum Test for Treatment1...")
-                r_stat, r_p_value = perform_ranktest(melted_data, treatment_to_compare)
+                w_stat, w_p_value = perform_ranktest(melted_data, treatment_to_compare)
         else:
             print(f"Performing ANOVA analysis for {treatment_to_compare}...")
             f_stat, f_p_value, tukey_summary = perform_anova(melted_data, treatment_to_compare)
@@ -91,7 +91,9 @@ def process_data(data, plot_type = None, treatment_to_compare = None):
         if t_stat is not None and t_p_value is not None:
             plt.title(f't-stat: {t_stat:.4f}, p-value: {t_p_value:.4f}', 
                      ha='center', va='top', x=0.47, y=1.02, color='blue')
-        #hier noch ergänzen wegen rank test! 
+        if w_stat is not None and w_p_value is not None:
+            plt.title(f't-stat: {w_stat:.4f}, p-value: {w_p_value:.4f}', 
+                     ha='center', va='top', x=0.47, y=1.02, color='blue') 
         if f_stat is not None and f_p_value is not None:
             plt.title(f'F-stat: {f_stat:.4f}, p-value: {f_p_value:.4f}', fontsize = 10, 
                      ha='center', va='top', x=0.47, y=1.02, color='blue')
