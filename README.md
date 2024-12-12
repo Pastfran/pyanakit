@@ -36,7 +36,7 @@ cd C:/Path/to/directory
 ```bash 
 git clone https://github.com/Pastfran/pyanakit.git
 ```
-### Step 2: Install required Packages: 
+### Step 2: Install required Packages 
 1. Open your command line interface
 - For Windows: Command Prompt or Anaconda PowerShell Prompt
 - For macOS/Linux: Terminal
@@ -62,7 +62,7 @@ pip install matplotlib numpy pandas scikit-learn scipy seaborn statsmodels
 - Commands are applicable across all operating system  
 2. Navigate to the folder where the application is located and into the `src` folder. Replace the path accordingly:
 ```bash	
-cd C:/Path/to/file/src
+cd C:/Path/to/file/pyanakit/src
 ```
 3. Launch the application with using this command:
 ```bash	

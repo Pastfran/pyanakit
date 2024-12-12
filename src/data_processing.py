@@ -43,21 +43,27 @@ def process_data(data, plot_type = None, treatment_to_compare = None):
         f_stat, f_p_value = None, None
         w_stat, w_p_value = None, None
        
-        # Perform statistical analysis
-        if treatment_to_compare == "Treatment1":
+     ##### Perform statistical analysis#logik hier ist nicht korrekt! 
+     
+        treatments = melted_data[treatment_to_compare].unique()
+        num_treatment = len(treatments)
+        
+        if num_treatment == 2:
             if perform_normal_test(melted_data['Value']):
-                print("Data normaldistributed. Performing statistical T-Test analysis for Treatment1...")
+                print(f"Data normaldistributed. Performing statistical T-Test analysis for {treatment_to_compare}...")
                 t_stat, t_p_value = perform_t_test(melted_data, treatment_to_compare)
             else: 
-                print("Data not normaldistributed. Performing Rank-Sum Test for Treatment1...")
+                print(f"Data not normaldistributed. Performing Rank-Sum Test for {treatment_to_compare}...")
                 w_stat, w_p_value = perform_ranktest(melted_data, treatment_to_compare)
-        else:
+        elif num_treatment > 2:
             print(f"Performing ANOVA analysis for {treatment_to_compare}...")
             f_stat, f_p_value, tukey_summary = perform_anova(melted_data, treatment_to_compare)
             if tukey_summary is not None:
                 print("Tukey Test Ergebnisse:")
                 print(tukey_summary)
-
+        else: 
+            print("Currently no test available!")
+            
         # Generate selected plot type
         plt.figure(figsize=(12, 6))
 
@@ -92,7 +98,7 @@ def process_data(data, plot_type = None, treatment_to_compare = None):
             plt.title(f't-stat: {t_stat:.4f}, p-value: {t_p_value:.4f}', 
                      ha='center', va='top', x=0.47, y=1.02, color='blue')
         if w_stat is not None and w_p_value is not None:
-            plt.title(f't-stat: {w_stat:.4f}, p-value: {w_p_value:.4f}', 
+            plt.title(f'w-stat: {w_stat:.4f}, p-value: {w_p_value:.4f}', 
                      ha='center', va='top', x=0.47, y=1.02, color='blue') 
         if f_stat is not None and f_p_value is not None:
             plt.title(f'F-stat: {f_stat:.4f}, p-value: {f_p_value:.4f}', fontsize = 10, 

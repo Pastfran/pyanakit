@@ -7,7 +7,7 @@ Created on Mon Oct 28 11:34:17 2024
 
 #statistical analysis functions
 
-from scipy.stats import ttest_ind, f_oneway, kstest, shapiro, norm, mannwhitneyu
+from scipy.stats import ttest_ind, f_oneway, kstest, shapiro, norm, mannwhitneyu, levene
 from statsmodels.stats.multicomp import pairwise_tukeyhsd
 
 def perform_normal_test(melted_data, alpha = 0.05):
@@ -48,8 +48,12 @@ def perform_t_test(melted_data, treatment_to_compare):
     if len(treatments) == 2:
         group1 = melted_data[melted_data[treatment_to_compare] == treatments[0]]['Value']
         group2 = melted_data[melted_data[treatment_to_compare] == treatments[1]]['Value']
+        #test of variance homogeneity
+        l_stat, p_value_levene = levene(group1, group2)
+        equal_var = p_value_levene > 0.05
+        print(f"Equal Variance: {equal_var}")
         # Perform the t-test (independant)
-        t_stat, p_value = ttest_ind(group1, group2)
+        t_stat, p_value = ttest_ind(group1, group2, equal_var = equal_var)
         print(f"t-statistic: {t_stat}, p-value: {p_value}")
         return t_stat, p_value
         
